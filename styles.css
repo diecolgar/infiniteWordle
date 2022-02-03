@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 5vh;
+	width: 100vw;
+	background-color: aliceblue;
+}
+
+.navcontent {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 40vw;
+	margin: 0 20vw;
+	font-size: 3vh;
+}
+
+.icon {
+	height: 3.5vh;
+}
+
+.icon:hover {
+	cursor: pointer;
+}
+
+.grid {
+	margin-top: 10vh;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 10px;
+}
+
+.grid-element {
+	width: 6vh;
+	height: 6vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 3vh;
+	background-color: rgb(238, 238, 238);
+	border: solid 2px rgb(218, 218, 218);
+	transition: 1s;
+}
+
+.active {
+	transform: scale(1.05);
+}
+
+.input {
+	margin-top: 10vh;
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+	grid-gap: 10px;
+}
+
+.grid-key {
+	width: 4vh;
+	height: 4.5vh;
+	background-color: rgb(228, 228, 228);
+	border-radius: 10%;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+
+.blank {
+	visibility: hidden;
+}
+
+.grid-key:hover {
+	cursor: pointer;
+}
