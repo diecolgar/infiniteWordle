@@ -1,5 +1,6 @@
 const gridElement = document.querySelectorAll('.grid-element')
 const gridKey = document.querySelectorAll('.grid-key')
+const winStreak = document.querySelector('.winstreak')
 
 const rowLength = 5;
 let writtenElements = 0
@@ -13,6 +14,8 @@ let sampleword = '     '
 
 // function RESTART GAME
 function restartGame() {
+    writtenElements = 0
+    currentRow = 1
     gridElement.forEach( gridElement => {
         gridElement.innerHTML = ''
         gridElement.style.backgroundColor = 'rgb(238, 238, 238)'
@@ -113,6 +116,9 @@ function compare() {
         alert('u won!')
         currentWins++
         hiddenWord = hiddenWords[currentWins]
+        hiddenWordArray = hiddenWord.split('')
+        winStreak.innerHTML = `Winstreak: ${currentWins}`
+        console.log(hiddenWord)
         restartGame()
     }
 }
