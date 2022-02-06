@@ -3,11 +3,26 @@ const gridKey = document.querySelectorAll('.grid-key')
 
 const rowLength = 5;
 let writtenElements = 0
+let currentWins = 0
 let currentRow = 1
 const gridKeyLength = gridKey.length
 
-let hiddenWord = 'EVITA'
+let hiddenWords = ['COCHE', 'NIEVE', 'NOCHE', 'CUENTA', 'CAMAS']
+let hiddenWord = hiddenWords[currentWins]
 let sampleword = '     '
+
+// function RESTART GAME
+function restartGame() {
+    gridElement.forEach( gridElement => {
+        gridElement.innerHTML = ''
+        gridElement.style.backgroundColor = 'rgb(238, 238, 238)'
+        gridElement.style.borderColor = 'rgb(218, 218, 218)'
+        gridElement.classList.remove('active')
+    })
+}
+
+// background-color: ;
+// border: solid 2px ;
 
 // function ERASE
 function erase(gridKey) {
@@ -96,5 +111,8 @@ function compare() {
     }
     if ( correctCounter == 5 ) {
         alert('u won!')
+        currentWins++
+        hiddenWord = hiddenWords[currentWins]
+        restartGame()
     }
 }
