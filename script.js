@@ -37,6 +37,7 @@ function erase(gridKey) {
     // Writting only once in next available space
     gridElement[writtenElements].innerHTML = ''
     gridElement[writtenElements].classList.remove('active')
+    gridElement[writtenElements].style.borderColor = 'rgb(218, 218, 218)'
 }
 
 // function CHECK
