@@ -193,7 +193,7 @@ darkmode.addEventListener('click', () => {
         root.style.setProperty('--light', 'rgb(58, 58, 58)')
         root.style.setProperty('--darker', 'rgb(243, 243, 243)')
         root.style.setProperty('--lighter', 'rgb(31, 31, 31)')
-        root.style.setProperty('--orange', 'rgb(160, 77, 0)')
+        root.style.setProperty('--orange', 'rgb(209, 173, 10)')
         root.style.setProperty('--green', 'rgb(0, 117, 59)')
         initialColorSate = false
     } else {
@@ -201,7 +201,7 @@ darkmode.addEventListener('click', () => {
         root.style.setProperty('--dark', 'rgb(58, 58, 58)')
         root.style.setProperty('--lighter', 'rgb(243, 243, 243)')
         root.style.setProperty('--darker', 'rgb(31, 31, 31)')
-        root.style.setProperty('--orange', 'rgb(255, 172, 95)')
+        root.style.setProperty('--orange', 'rgb(236, 210, 90)')
         root.style.setProperty('--green', 'rgb(82, 221, 152)')
         initialColorSate = true
     }

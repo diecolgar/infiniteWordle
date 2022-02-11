@@ -5,7 +5,7 @@
 	--darker: rgb(31, 31, 31);
 	--light: rgb(220, 220, 220);
 	--lighter: rgb(243, 243, 243);
-	--orange: rgb(255, 172, 95);
+	--orange: rgb(255, 225, 95);
 	--green: rgb(82, 221, 152);
 	/* --orange: rgb(160, 77, 0);
 	--green: rgb(0, 117, 59); */
@@ -34,6 +34,7 @@ nav {
 
 .icon {
 	stroke: var(--darker);
+	transition: 0.5s;
 }
 
 .navcontent {
