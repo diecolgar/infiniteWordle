@@ -2,6 +2,9 @@ const body = document.querySelector('body')
 const infoButton = document.querySelector('.info')
 const infoDisplay = document.querySelector('.infodisplay')
 
+const darkmode = document.querySelector('.darkmode')
+root = document.documentElement
+
 const gridElement = document.querySelectorAll('.grid-element')
 const gridKey = document.querySelectorAll('.grid-key')
 const winStreak = document.querySelector('.winnumber')
@@ -47,12 +50,12 @@ function restartGame() {
     displayable.classList.remove('justwon')
     gridElement.forEach( gridElement => {
         gridElement.innerHTML = ''
-        gridElement.style.backgroundColor = 'rgb(238, 238, 238)'
-        gridElement.style.borderColor = 'rgb(218, 218, 218)'
+        gridElement.style.backgroundColor = 'var(--lighter)'
+        gridElement.style.borderColor = 'var(--light)'
         gridElement.classList.remove('active')
     })
     gridKey.forEach( gridKey => {
-        gridKey.style.backgroundColor = 'rgb(228, 228, 228)'
+        gridKey.style.backgroundColor = 'var(--light)'
     })
 }
 
@@ -69,7 +72,7 @@ function erase(gridKey) {
     // Writting only once in next available space
     gridElement[writtenElements].innerHTML = ''
     gridElement[writtenElements].classList.remove('active')
-    gridElement[writtenElements].style.borderColor = 'rgb(218, 218, 218)'
+    gridElement[writtenElements].style.borderColor = 'var(--light)'
 }
 
 // function CHECK
@@ -85,7 +88,7 @@ function write(gridKey) {
 
     // Writting only once in next available space
     gridElement[writtenElements].innerHTML = gridKey.innerHTML
-    gridElement[writtenElements].style.borderColor = 'black'
+    gridElement[writtenElements].style.borderColor = 'var(--darker)'
     gridElement[writtenElements].classList.add('active')
 
     if( writtenElements < (gridKeyLength) ) {
@@ -120,15 +123,15 @@ function compare() {
 
         checkingWordArray[i] = gridElement[i+((currentRow-2)*rowLength)].innerHTML
 
-        gridElement[i+((currentRow-2)*rowLength)].style.borderColor = 'white'
+        gridElement[i+((currentRow-2)*rowLength)].style.borderColor = 'var(--light)'
 
         // orange & grey words
         for (let j = 0; j < rowLength; j++) {
             if ( hiddenWordArray[j] == checkingWordArray[i]) {
-                gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = '#7eded4'
+                gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--orange)'
                 gridKey.forEach( gridKey => {
                     if (gridKey.innerHTML == hiddenWordArray[j]) {
-                        gridKey.style.backgroundColor = '#7eded4'
+                        gridKey.style.backgroundColor = 'var(--orange)'
                     }
                 })
             }
@@ -136,10 +139,10 @@ function compare() {
     
         // green words
         if ( hiddenWordArray[i] == checkingWordArray[i]) {
-            gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = '#79c771'
+            gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--green)'
             gridKey.forEach( gridKey => {
                 if (gridKey.innerHTML == hiddenWordArray[i]) {
-                    gridKey.style.backgroundColor = '#79c771'
+                    gridKey.style.backgroundColor = 'var(--green)'
                 }
             })
             correctCounter++
@@ -178,4 +181,28 @@ function checkIfWordExists() {
 
 infoButton.addEventListener('click', () => {
     infoDisplay.classList.toggle('active')
+})
+
+
+let initialColorSate = true
+darkmode.addEventListener('click', () => {
+    console.log('a ver')
+
+    if(initialColorSate) {
+        root.style.setProperty('--dark', 'rgb(220, 220, 220)')
+        root.style.setProperty('--light', 'rgb(58, 58, 58)')
+        root.style.setProperty('--darker', 'rgb(243, 243, 243)')
+        root.style.setProperty('--lighter', 'rgb(31, 31, 31)')
+        root.style.setProperty('--orange', 'rgb(160, 77, 0)')
+        root.style.setProperty('--green', 'rgb(0, 117, 59)')
+        initialColorSate = false
+    } else {
+        root.style.setProperty('--light', 'rgb(220, 220, 220)')
+        root.style.setProperty('--dark', 'rgb(58, 58, 58)')
+        root.style.setProperty('--lighter', 'rgb(243, 243, 243)')
+        root.style.setProperty('--darker', 'rgb(31, 31, 31)')
+        root.style.setProperty('--orange', 'rgb(255, 172, 95)')
+        root.style.setProperty('--green', 'rgb(82, 221, 152)')
+        initialColorSate = true
+    }
 })
