@@ -2,15 +2,34 @@ const gridElement = document.querySelectorAll('.grid-element')
 const gridKey = document.querySelectorAll('.grid-key')
 const winStreak = document.querySelector('.winstreak')
 
+let allWords
+
 const rowLength = 5;
 let writtenElements = 0
 let currentWins = 0
 let currentRow = 1
 const gridKeyLength = gridKey.length
 
-let hiddenWords = ['COCHE', 'NIEVE', 'NOCHE', 'CUENTA', 'CAMAS']
-let hiddenWord = hiddenWords[currentWins]
+let hiddenWord
+let hiddenWordArray
 let sampleword = '     '
+let checkingWordArray =  sampleword.split('')
+
+// function GET RANDOM WORD
+function getRandWord() {
+    fetch('0_palabras_todas_test.txt')
+    .then(response => response.text())
+    .then((response) => {
+        allWords = response.split('\n')
+            function random_item(item) {
+                return item[Math.floor(Math.random()*item.length)];
+            }
+        hiddenWord = random_item(allWords);
+        hiddenWordArray = hiddenWord.split('')
+    })
+    .catch(err => console.log(err))
+}
+getRandWord()
 
 // function RESTART GAME
 function restartGame() {
@@ -65,7 +84,6 @@ function write(gridKey) {
 // KEYBOARD clicking event
 gridKey.forEach((gridKey, id) => {
     gridKey.addEventListener('click', () => {
-        // console.log(currentRow*rowLength)
 
         if ( (id == (gridKeyLength - 2)) && ( writtenElements > ((currentRow-1)*rowLength) ) ) {
             // ERASE
@@ -78,14 +96,9 @@ gridKey.forEach((gridKey, id) => {
         else if (!(id == (gridKeyLength - 2)) && ( writtenElements < (currentRow*rowLength) )) {
             // WRITE
             write(gridKey)
-            console.log('write')
         }
     })
 })
-
-// HIDDEN WORD COMPARISON
-let hiddenWordArray = hiddenWord.split('')
-let checkingWordArray =  sampleword.split('')
 
 function compare() {
 
@@ -100,26 +113,21 @@ function compare() {
         // orange & grey words
         for (let j = 0; j < rowLength; j++) {
             if ( hiddenWordArray[j] == checkingWordArray[i]) {
-                console.log('almost...')
                 gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = '#7eded4'
             }
         }
     
         // green words
         if ( hiddenWordArray[i] == checkingWordArray[i]) {
-            console.log('ok!')
             gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = '#79c771'
             correctCounter++
         }
         
     }
     if ( correctCounter == 5 ) {
-        alert('u won!')
         currentWins++
-        hiddenWord = hiddenWords[currentWins]
-        hiddenWordArray = hiddenWord.split('')
-        winStreak.innerHTML = `Winstreak: ${currentWins}`
-        console.log(hiddenWord)
-        restartGame()
+        getRandWord()
+        winStreak.innerHTML = `VICTORIAS: ${currentWins}`
+        setTimeout(restartGame, 5000)
     }
 }

@@ -57,8 +57,13 @@ nav {
 	transform: scale(1.05);
 }
 
+.winstreak {
+	margin-top: 5vh;
+	text-transform: uppercase;
+}
+
 .input {
-	margin-top: 10vh;
+	margin-top: 5vh;
 	display: grid;
 	grid-template-columns: repeat(10, 1fr);
 	grid-gap: 10px;
