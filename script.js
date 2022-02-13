@@ -26,10 +26,10 @@ let checkingWordArray =  sampleword.split('')
 
 // function GET RANDOM WORD
 function getRandWord() {
-    fetch('palabras.txt')
+    fetch('palabras_todas.txt')
     .then(response => response.text())
     .then((response) => {
-        allWords = response.split('\n')
+        allWords = response.split('\r\n')
             function random_item(item) {
                 return item[Math.floor(Math.random()*item.length)];
             }
@@ -184,9 +184,10 @@ infoButton.addEventListener('click', () => {
 })
 
 
+
+// DARK MODE TRIGGER
 let initialColorSate = true
 darkmode.addEventListener('click', () => {
-    console.log('a ver')
 
     if(initialColorSate) {
         root.style.setProperty('--dark', 'rgb(220, 220, 220)')
