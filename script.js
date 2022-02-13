@@ -29,7 +29,7 @@ function getRandWord() {
     fetch('palabras_todas.txt')
     .then(response => response.text())
     .then((response) => {
-        allWords = response.split('\r\n')
+        allWords = response.split('\n')
             function random_item(item) {
                 return item[Math.floor(Math.random()*item.length)];
             }

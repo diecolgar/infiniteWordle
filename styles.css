@@ -36,6 +36,8 @@ nav {
 }
 
 .icon {
+	height: 3vh;
+	width: 3vh;
 	stroke: var(--darker);
 	transition: 0.5s;
 }
