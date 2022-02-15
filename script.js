@@ -29,7 +29,7 @@ function getRandWord() {
     fetch('palabras_todas.txt')
     .then(response => response.text())
     .then((response) => {
-        allWords = response.split('\n')
+        allWords = response.split('\r\n')
             function random_item(item) {
                 return item[Math.floor(Math.random()*item.length)];
             }
@@ -58,9 +58,6 @@ function restartGame() {
         gridKey.style.backgroundColor = 'var(--light)'
     })
 }
-
-// background-color: ;
-// border: solid 2px ;
 
 // function ERASE
 function erase(gridKey) {
@@ -115,28 +112,30 @@ gridKey.forEach((gridKey, id) => {
     })
 })
 
+let comparerArray = Array(rowLength)
+
 function compare() {
 
     let correctCounter = 0;
+ 
 
     for (let i = 0; i < rowLength; i++) {
 
+        comparerArray[i] = false
+
         checkingWordArray[i] = gridElement[i+((currentRow-2)*rowLength)].innerHTML
 
-        gridElement[i+((currentRow-2)*rowLength)].style.borderColor = 'var(--light)'
-
-        // orange & grey words
+        // grey words
+        gridElement[i+((currentRow-2)*rowLength)].style.borderColor = 'var(--lighter)'
         for (let j = 0; j < rowLength; j++) {
-            if ( hiddenWordArray[j] == checkingWordArray[i]) {
-                gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--orange)'
-                gridKey.forEach( gridKey => {
-                    if (gridKey.innerHTML == hiddenWordArray[j]) {
-                        gridKey.style.backgroundColor = 'var(--orange)'
-                    }
-                })
-            }
+            gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--light)'
+            gridKey.forEach( gridKey => {
+                if (gridKey.innerHTML == gridElement[i+((currentRow-2)*rowLength)].innerHTML) {
+                    gridKey.style.backgroundColor = 'var(--dark)'
+                }
+            })
         }
-    
+
         // green words
         if ( hiddenWordArray[i] == checkingWordArray[i]) {
             gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--green)'
@@ -145,10 +144,26 @@ function compare() {
                     gridKey.style.backgroundColor = 'var(--green)'
                 }
             })
+            comparerArray[i] = true
             correctCounter++
         }
-        
     }
+    
+    for (let i = 0; i < rowLength; i++) {
+        // orange words
+        for (let j = 0; j < rowLength; j++) {
+            if ( ((hiddenWordArray[j] == checkingWordArray[i]) && (!comparerArray[j])) && !(j == i) ) {
+                gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--orange)'
+                gridKey.forEach( gridKey => {
+                    if (gridKey.innerHTML == hiddenWordArray[j]) {
+                        gridKey.style.backgroundColor = 'var(--orange)'
+                    }
+                })
+                comparerArray[i] = true
+            }
+        }
+    }    
+
     if ( correctCounter == 5 ) {
         currentWins++
         displayable.classList.add('justwon')
