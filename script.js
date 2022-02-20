@@ -11,7 +11,13 @@ const winStreak = document.querySelector('.winnumber')
 
 const displayable = document.querySelector('.displayable')
 
+
+const userNameScreen = document.querySelector('.usernamescreen')
+const userNameContent = document.querySelector('.usernamecontent')
+const userNameButton = document.querySelector('.icon-tabler-arrow-right')
+
 let allWords
+let userName = 'Anónimo'
 
 const rowLength = 5;
 let writtenElements = 0
@@ -29,7 +35,7 @@ function getRandWord() {
     fetch('palabras_todas.txt')
     .then(response => response.text())
     .then((response) => {
-        allWords = response.split('\r\n')
+        allWords = response.split('\n')
             function random_item(item) {
                 return item[Math.floor(Math.random()*item.length)];
             }
@@ -45,7 +51,7 @@ function restartGame() {
     getRandWord()
     writtenElements = 0
     currentRow = 1
-    winStreak.innerHTML = `${currentWins}`
+    winStreak.innerHTML = `RACHA DE VICTORIAS: ${currentWins}`
     displayable.classList.remove('justlost')
     displayable.classList.remove('justwon')
     gridElement.forEach( gridElement => {
@@ -93,19 +99,32 @@ function write(gridKey) {
     }
 }
 
+////////////////////////////////// EVENTS
+
+userNameButton.addEventListener('click', () => {
+    userName = document.querySelector('.usernamesubmit').value
+    userNameScreen.classList.toggle('active')
+})
+
+// userNameClose.addEventListener('click', () => {
+//     userName = 'Anónimo'
+// })
+
 // KEYBOARD clicking event
 gridKey.forEach((gridKey, id) => {
     gridKey.addEventListener('click', () => {
 
-        if ( (id == (gridKeyLength - 2)) && ( writtenElements > ((currentRow-1)*rowLength) ) ) {
+        if ( (gridKey.classList.contains('erasericon')) && ( writtenElements > ((currentRow-1)*rowLength) ) ) {
             // ERASE
             erase(gridKey)
         }
-        else if ( id == gridKeyLength - 1) {
+        else if (gridKey.classList.contains('checkericon')) {
+            console.log('aaa')
             // CHECK
             check()
         }
-        else if (!(id == (gridKeyLength - 2)) && ( writtenElements < (currentRow*rowLength) )) {
+        else if ( (writtenElements < (currentRow*rowLength) ) && ( !(gridKey.classList.contains('erasericon')) ) ) {
+            console.log('write')
             // WRITE
             write(gridKey)
         }
@@ -135,18 +154,20 @@ function compare() {
                 }
             })
         }
+    }
 
+    for (let i = 0; i < rowLength; i++) {
         // green words
-        if ( hiddenWordArray[i] == checkingWordArray[i]) {
-            gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--green)'
-            gridKey.forEach( gridKey => {
-                if (gridKey.innerHTML == hiddenWordArray[i]) {
-                    gridKey.style.backgroundColor = 'var(--green)'
-                }
-            })
-            comparerArray[i] = true
-            correctCounter++
-        }
+            if ( hiddenWordArray[i] == checkingWordArray[i]) {
+                gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--green)'
+                gridKey.forEach( gridKey => {
+                    if (gridKey.innerHTML == hiddenWordArray[i]) {
+                        gridKey.style.backgroundColor = 'var(--green)'
+                    }
+                })
+                comparerArray[i] = true
+                correctCounter++
+            }
     }
     
     for (let i = 0; i < rowLength; i++) {
@@ -159,7 +180,7 @@ function compare() {
                         gridKey.style.backgroundColor = 'var(--orange)'
                     }
                 })
-                comparerArray[i] = true
+                comparerArray[j] = true
             }
         }
     }    
@@ -167,7 +188,9 @@ function compare() {
     if ( correctCounter == 5 ) {
         currentWins++
         displayable.classList.add('justwon')
-        setTimeout(restartGame, 1000)
+        setTimeout(restartGame, 2000)
+        // fetchLastData()
+        updateScoreboard()
     } else if (currentRow == 7) {
         currentWins = 0
         displayable.classList.add('justlost')
