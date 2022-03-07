@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap');
 
 :root {
-	--dark: rgb(58, 58, 58);
+	/* --dark: rgb(58, 58, 58);
 	--darker: rgb(31, 31, 31);
 	--light: rgb(220, 220, 220);
 	--lighter: rgb(243, 243, 243);
+	--orange: rgb(255, 225, 95);
+	--green: rgb(82, 221, 152); */
+	--light: rgb(58, 58, 58);
+	--lighter: rgb(31, 31, 31);
+	--dark: rgb(220, 220, 220);
+	--darker: rgb(243, 243, 243);
 	--orange: rgb(255, 225, 95);
 	--green: rgb(82, 221, 152);
 	/* --orange: rgb(160, 77, 0);
@@ -23,22 +29,35 @@ body {
 	transition: 0.5s;
 	background-color: var(--lighter);
 	color: var(--darker);
+	overflow: hidden;
+	margin: 0;
 }
 
 nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	height: 5vh;
+	height: 6vh;
 	width: 100vw;
 	background-color: var(--light);
 	color: var(--dark);
 	z-index: 100;
 }
 
+.info {
+	margin-right: 4vh;
+}
+
+.title {
+	width: 25vw;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+}
+
 .icon {
 	height: 3vh;
-	width: 3vh;
+	width: 4vh;
 	stroke: var(--darker);
 	transition: 0.5s;
 }
@@ -52,12 +71,6 @@ nav {
 	font-size: 3vh;
 }
 
-.icon-nav {
-	height: 3vh;
-	width: 3vh;
-	margin: 0 5rem;
-}
-
 .icon:hover {
 	cursor: pointer;
 }
@@ -67,9 +80,9 @@ nav {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 0.2vw;
-	width: 80vw;
+	width: 90vh;
+	max-width: 300px;
 	height: 50vh;
-	max-width: 350px;
 }
 
 .grid-element {
@@ -110,7 +123,7 @@ nav {
 	grid-gap: 0.5vw;
 	height: 30vh;
 	width: 95vw;
-	max-width: 600px;
+	max-width: 450px;
 }
 
 .grid-key {
@@ -158,17 +171,17 @@ nav {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	color: rgb(0, 0, 0);
+	color: var(--light);
 	padding: 10px 40px;
 	top: 10vh;
 	width: 80vw;
 	max-width: 600px;
 	margin: auto;
 	height: 82vh;
-	background-color: rgb(255, 255, 255);
+	background-color: var(--dark);
 	border-radius: 5px;
 	visibility: hidden;
-	font-weight: 300;
+	font-weight: 500;
 	font-size: 1.8vh;
 	z-index: 100;
 }
@@ -193,40 +206,25 @@ img {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	color: rgb(0, 0, 0);
-	padding: 10px 40px;
+	color: var(--darker);
 	top: 6vh;
-	width: 80vw;
-	max-width: 600px;
+	width: 100vw;
 	margin: auto;
-	height: 88vh;
-	background-color: white;
-	border-radius: 5px;
+	height: 100vh;
+	background-color: var(--lighter);
 	font-weight: 300;
 	font-size: 1.8vh;
 }
 
 .usernamecontent {
 	display: flex;
-}
-
-/* .icon-tabler-x {
-	position: absolute;
-	width: 2.5vw;
-	height: 2.5vh;
-	stroke: black;
-	top: 37vh;
-	left: 47vw;
-} */
-
-.icon-tabler-x:hover {
-	cursor: pointer;
+	align-items: center;
 }
 
 .icon-tabler-arrow-right {
-	width: 4vw;
-	height: 4vh;
-	stroke: black;
+	height: 3vh;
+	width: 5vh;
+	stroke: var(--darker);
 }
 
 .icon-tabler-arrow-right:hover {
@@ -239,17 +237,58 @@ img {
 
 .usernamesubmit {
 	height: 3vh;
-	width: 70vw;
-	max-width: 250px;
 	font-size: 2vh;
-	border: solid 2px black;
-	margin-bottom: 2vh;
+	border: solid 2px var(--dark);
 	display: flex;
 	text-align: center;
-	margin-left: 4vw;
 	border-radius: 15px;
+	margin-left: 2vw;
 }
 
 .usernamescreen.active {
 	visibility: hidden;
+}
+
+.leaderboarddisplay {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 6vh;
+	background-color: var(--lighter);
+	width: 100vw;
+	height: 100vh;
+	z-index: 100;
+	/* visibility: hidden; */
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.leaderboarddisplay.active {
+	visibility: hidden;
+}
+
+.leaderboard {
+	width: 95vw;
+	height: 50vh;
+	padding: 1vw 5vh;
+	background-color: var(--dark);
+	max-width: 400px;
+	border-radius: 20px;
+}
+
+.scoreelement {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-align: center;
+	color: var(--lighter);
+	margin: 2vh;
+	font-size: 1.8vh;
+}
+
+.headerrow {
+	text-transform: uppercase;
+	font-size: 1.8vh;
+	margin-bottom: 3vh;
 }

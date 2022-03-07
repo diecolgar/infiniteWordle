@@ -1,7 +1,9 @@
 const body = document.querySelector('body')
+
 const infoButton = document.querySelector('.info')
 const infoDisplay = document.querySelector('.infodisplay')
-
+const leaderboardDisplay = document.querySelector('.leaderboarddisplay')
+const leaderboardButton = document.querySelector('.icon-leaderboard')
 const darkmode = document.querySelector('.darkmode')
 root = document.documentElement
 
@@ -15,6 +17,7 @@ const displayable = document.querySelector('.displayable')
 const userNameScreen = document.querySelector('.usernamescreen')
 const userNameContent = document.querySelector('.usernamecontent')
 const userNameButton = document.querySelector('.icon-tabler-arrow-right')
+const userNameClose = document.querySelector('.icon-tabler-x')
 
 let allWords
 let userName = 'Anónimo'
@@ -106,10 +109,6 @@ userNameButton.addEventListener('click', () => {
     userNameScreen.classList.toggle('active')
 })
 
-// userNameClose.addEventListener('click', () => {
-//     userName = 'Anónimo'
-// })
-
 // KEYBOARD clicking event
 gridKey.forEach((gridKey, id) => {
     gridKey.addEventListener('click', () => {
@@ -119,12 +118,10 @@ gridKey.forEach((gridKey, id) => {
             erase(gridKey)
         }
         else if (gridKey.classList.contains('checkericon')) {
-            console.log('aaa')
             // CHECK
             check()
         }
         else if ( (writtenElements < (currentRow*rowLength) ) && ( !(gridKey.classList.contains('erasericon')) ) ) {
-            console.log('write')
             // WRITE
             write(gridKey)
         }
@@ -189,7 +186,6 @@ function compare() {
         currentWins++
         displayable.classList.add('justwon')
         setTimeout(restartGame, 2000)
-        // fetchLastData()
         updateScoreboard()
     } else if (currentRow == 7) {
         currentWins = 0
@@ -217,14 +213,10 @@ function checkIfWordExists() {
     }
 }
 
-infoButton.addEventListener('click', () => {
-    infoDisplay.classList.toggle('active')
-})
-
 
 
 // DARK MODE TRIGGER
-let initialColorSate = true
+let initialColorSate = false
 darkmode.addEventListener('click', () => {
 
     if(initialColorSate) {
@@ -244,4 +236,18 @@ darkmode.addEventListener('click', () => {
         root.style.setProperty('--green', 'rgb(82, 221, 152)')
         initialColorSate = true
     }
+})
+
+// INFO TRIGGER
+infoButton.addEventListener('click', () => {
+    infoDisplay.classList.toggle('active')
+
+    if (!leaderboardDisplay.classList.contains('active')) {
+        leaderboardDisplay.classList.toggle('active')
+    }
+})
+
+// LEADERBOARD TRIGGER
+leaderboardButton.addEventListener('click', () => {
+    leaderboardDisplay.classList.toggle('active')
 })

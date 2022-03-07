@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>My Page Title</title>
-  <meta name="description" content="My Page Description">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wordle Infinito</title>
   <link rel="stylesheet" href="styles.css?v=1.0">
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -11,17 +12,25 @@
 <body>
     <nav>
         <div class="navcontent">
-            <div class="info">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle icon-nav" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <div class="info iconbutton">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <circle cx="12" cy="12" r="9" />
                 <line x1="12" y1="8" x2="12.01" y2="8" />
                 <polyline points="11 12 12 12 12 16 13 16" />
                 </svg>
             </div>
-            <div class="title">INFINITE WORDLE</div>
-            <div class="darkmode">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-2 icon-nav" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <div class="title">WORDLE INFINITO</div>
+            <div class="icon-leaderboard iconbutton">
+                <svg width="24px" class="icon" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 19H9V12.5V8.6C9 8.26863 9.26863 8 9.6 8H14.4C14.7314 8 15 8.26863 15 8.6V14.5V19Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.4 19H15V15.1C15 14.7686 15.2686 14.5 15.6 14.5H20.4C20.7314 14.5 21 14.7686 21 15.1V18.4C21 18.7314 20.7314 19 20.4 19Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 19V13.1C9 12.7686 8.73137 12.5 8.4 12.5H3.6C3.26863 12.5 3 12.7686 3 13.1V18.4C3 18.7314 3.26863 19 3.6 19H9Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>                    
+            </div>
+            <div class="darkmode iconbutton">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M16.418 4.157a8 8 0 0 0 0 15.686" />
                 <circle cx="12" cy="12" r="9" />
@@ -70,7 +79,7 @@
         <p> Cada intento debe ser una palabra válida de 5 letras.</p>
         <p> Después de cada intento el color de las letras cambia para mostrar qué tan cerca estás de acertar la palabra.</p>
         <p> Ejemplo:</p>
-        <img src="/examplepic.png" alt="">
+        <img src="/examplepic2.png" alt="">
         <p> Cada vez que ganes, tu contador de racha subirá 1 punto.</p>
         <p> Gana el máximo de veces para entrar en el top!</p>
         <p> Diego Colino </p>
@@ -78,11 +87,6 @@
     <div class="usernamescreen">
         <p>ESCRIBE TU NOMBRE</p>
         <div class="usernamecontent">
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler-x" width="100" height="100" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-            </svg> -->
             <input type="text" maxlength="15" class="usernamesubmit">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler-arrow-right" width="100" height="100" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -90,6 +94,44 @@
                 <line x1="13" y1="18" x2="19" y2="12" />
                 <line x1="13" y1="6" x2="19" y2="12" />
               </svg>
+        </div>
+    </div>
+    <div class="leaderboarddisplay active">
+        <p>MARCADOR</p>
+        <div class="leaderboard">
+            <div class="scoreelement headerrow">
+                <div>Posición</div><div>Nombre</div><div>Récord</div>
+            </div>
+            <div class="scoreelement">
+                <div>1</div><div class="first">fetching...</div><div class="firstresult">???</div>
+            </div>
+            <div class="scoreelement">
+                <div>2</div><div class="second">fetching...</div><div class="secondresult">???</div>
+            </div>
+            <div class="scoreelement">
+                <div>3</div><div class="third">fetching...</div><div class="thirdresult">???</div>
+            </div>
+            <div class="scoreelement">
+                <div>4</div><div class="fourth">fetching...</div><div class="fourthresult">???</div>
+            </div>
+            <div class="scoreelement">
+                <div>5</div><div class="fifth">fetching...</div><div class="fifthresult">???</div>
+            </div>
+            <div class="scoreelement">
+                <div>6</div><div class="sixth">fetching...</div><div class="sixthresult">???</div>
+            </div>
+            <div class="scoreelement">
+                <div>7</div><div class="seventh">fetching...</div><div class="seventhresult">???</div>
+            </div>
+            <div class="scoreelement">
+                <div>8</div><div class="eighth">fetching...</div><div class="eighthresult">???</div>
+            </div>
+            <div class="scoreelement">
+                <div>9</div><div class="ninth">fetching...</div><div class="ninthresult">???</div>
+            </div>
+            <div class="scoreelement">
+                <div>10</div><div class="tenth">fetching...</div><div class="tenthresult">???</div>
+            </div>
         </div>
     </div>
 
