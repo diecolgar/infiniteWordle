@@ -44,12 +44,9 @@ nav {
 	z-index: 100;
 }
 
-.info {
-	margin-right: 4vh;
-}
-
 .title {
-	width: 25vw;
+	width: 40vw;
+	font-size: 1.3rem;
 	display: flex;
 	text-align: center;
 	justify-content: center;
@@ -66,9 +63,24 @@ nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	max-width: 800px;
+	width: 100vw;
+	max-width: 400px;
 	/* margin: 0 20vw; */
 	font-size: 3vh;
+}
+
+.left {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	width: 30vw;
+}
+
+.right {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	width: 30vw;
 }
 
 .icon:hover {
