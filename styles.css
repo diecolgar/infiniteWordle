@@ -207,7 +207,7 @@ img {
 	align-items: center;
 	justify-content: center;
 	color: var(--darker);
-	top: 6vh;
+	top: 0;
 	width: 100vw;
 	margin: auto;
 	height: 100vh;
@@ -270,7 +270,7 @@ img {
 
 .leaderboard {
 	width: 95vw;
-	height: 50vh;
+	height: 30vh;
 	padding: 1vw 5vh;
 	background-color: var(--dark);
 	max-width: 400px;
