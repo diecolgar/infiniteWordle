@@ -2,6 +2,7 @@ const body = document.querySelector('body')
 
 const infoButton = document.querySelector('.info')
 const infoDisplay = document.querySelector('.infodisplay')
+const title = document.querySelector('.title')
 const leaderboardDisplay = document.querySelector('.leaderboarddisplay')
 const leaderboardButton = document.querySelector('.icon-leaderboard')
 const darkmode = document.querySelector('.darkmode')
@@ -12,7 +13,8 @@ const gridKey = document.querySelectorAll('.grid-key')
 const winStreak = document.querySelector('.winnumber')
 
 const displayable = document.querySelector('.displayable')
-
+const closeIcon = document.querySelector('.closeicon')
+const closeIconInfo = document.querySelector('.closeiconinfo')
 
 const userNameScreen = document.querySelector('.usernamescreen')
 const userNameContent = document.querySelector('.usernamecontent')
@@ -189,8 +191,15 @@ function compare() {
         updateScoreboard()
     } else if (currentRow == 7) {
         currentWins = 0
-        displayable.classList.add('justlost')
-        setTimeout(restartGame, 2000)
+        if (!scoreboarded) {
+            displayable.classList.add('justlost')
+            setTimeout(restartGame, 2000)
+        } else {
+            leaderboardDisplay.classList.toggle('active')
+            setTimeout(restartGame, 2000) 
+            scoreboarded = false
+        }
+
     }
 }
 
@@ -247,7 +256,33 @@ infoButton.addEventListener('click', () => {
     }
 })
 
+closeIconInfo.addEventListener('click', () => {
+    infoDisplay.classList.toggle('active')
+
+    if (!leaderboardDisplay.classList.contains('active')) {
+        leaderboardDisplay.classList.toggle('active')
+    }
+})
+
+// TITLE TRIGGER
+title.addEventListener('click', () => {
+    leaderboardDisplay.classList.add('active')
+    infoDisplay.classList.remove('active')
+})
+
 // LEADERBOARD TRIGGER
 leaderboardButton.addEventListener('click', () => {
     leaderboardDisplay.classList.toggle('active')
+
+    if (infoDisplay.classList.contains('active')) {
+        infoDisplay.classList.toggle('active')
+    }
+})
+
+closeIcon.addEventListener('click', () => {
+    leaderboardDisplay.classList.toggle('active')
+
+    if (infoDisplay.classList.contains('active')) {
+        infoDisplay.classList.toggle('active')
+    }
 })

@@ -1,3 +1,5 @@
+let scoreboarded = false
+
 const firstHTML = document.querySelector('.first')
 const firstResultHTML = document.querySelector('.firstresult')
 const secondHTML = document.querySelector('.second')
@@ -96,6 +98,7 @@ let scoresArray = Array(10)
     for (i = 0; i < 10; i++) {
       if (currentWins > scoresArray[i]) {
         console.log('testeo')
+        scoreboarded = true
         scoresArray.splice(i, 0, currentWins)
         playersArray.splice(i, 0, userName)
         break

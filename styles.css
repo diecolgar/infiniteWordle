@@ -37,7 +37,7 @@ nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	height: 6vh;
+	height: 8vh;
 	width: 100vw;
 	background-color: var(--light);
 	color: var(--dark);
@@ -52,6 +52,10 @@ nav {
 	justify-content: center;
 }
 
+.title:hover {
+	cursor: pointer;
+}
+
 .icon {
 	height: 3vh;
 	width: 4vh;
@@ -63,7 +67,7 @@ nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 100vw;
+	width: 80vw;
 	max-width: 400px;
 	/* margin: 0 20vw; */
 	font-size: 3vh;
@@ -72,15 +76,16 @@ nav {
 .left {
 	display: flex;
 	align-items: center;
-	justify-content: left;
-	width: 30vw;
+	justify-content: right;
+	width: 5vw;
+	/* margin-right: 5vw; */
 }
 
 .right {
 	display: flex;
 	align-items: center;
-	justify-content: right;
-	width: 30vw;
+	justify-content: left;
+	width: 10vw;
 }
 
 .icon:hover {
@@ -185,22 +190,34 @@ nav {
 	flex-direction: column;
 	color: var(--light);
 	padding: 10px 40px;
-	top: 10vh;
+	top: 20vh;
 	width: 80vw;
-	max-width: 600px;
+	max-width: 400px;
 	margin: auto;
-	height: 82vh;
+	height: 55vh;
 	background-color: var(--dark);
 	border-radius: 5px;
 	visibility: hidden;
 	font-weight: 500;
-	font-size: 1.8vh;
+	font-size: 1.4vh;
 	z-index: 100;
 }
 
+@media (min-width: 400px) {
+	.infodisplay {
+		font-size: 1.5vh;
+	}
+}
+
+@media (min-width: 600px) {
+	.infodisplay {
+		font-size: 1.6vh;
+	}
+}
+
 .infodisplay p {
-	margin: 1vh;
-	line-height: 2.6vh;
+	margin: 0.8vh;
+	line-height: 2vh;
 }
 
 .infodisplay.active {
@@ -208,7 +225,7 @@ nav {
 }
 
 img {
-	width: 100%;
+	width: 60%;
 	margin: 0.5vh;
 }
 
@@ -265,10 +282,10 @@ img {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	top: 6vh;
+	top: 20vh;
 	background-color: var(--lighter);
 	width: 100vw;
-	height: 100vh;
+	height: 50vh;
 	z-index: 100;
 	/* visibility: hidden; */
 	align-items: center;
@@ -282,7 +299,7 @@ img {
 
 .leaderboard {
 	width: 95vw;
-	height: 30vh;
+	height: 50vh;
 	padding: 1vw 5vh;
 	background-color: var(--dark);
 	max-width: 400px;
@@ -303,4 +320,22 @@ img {
 	text-transform: uppercase;
 	font-size: 1.8vh;
 	margin-bottom: 3vh;
+}
+
+.closeicon {
+	font-size: 2.5vh;
+}
+
+.closeicon:hover {
+	cursor: pointer;
+}
+
+.closeiconinfo {
+	display: flex;
+	justify-content: right;
+	font-size: 2.5vh;
+}
+
+.closeiconinfo:hover {
+	cursor: pointer;
 }
