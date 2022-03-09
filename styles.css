@@ -30,6 +30,7 @@ body {
 	background-color: var(--lighter);
 	color: var(--darker);
 	overflow: hidden;
+	margin: 0;
 }
 
 nav {
