@@ -194,7 +194,7 @@ function compare() {
                 displayable.classList.add('justlost')
                 setTimeout(restartGame, 2000)
             } else {
-                displayable.innerHTML = 'NEW RECORD!'
+                displayable.innerHTML = 'NUEVO RÉCORD!'
                 displayable.classList.add('newrecord')
                 setTimeout(restartGame, 2000)
                 setTimeout(() => {

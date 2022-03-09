@@ -181,13 +181,13 @@ nav {
 .justlost {
 	background-color: rgb(107, 49, 76);
 	visibility: visible;
-	opacity: 0.95;
+	opacity: 1;
 }
 
 .newrecord {
 	background-color: rgb(49, 107, 73);
 	visibility: visible;
-	opacity: 0.95;
+	opacity: 1;
 }
 
 .infodisplay {
