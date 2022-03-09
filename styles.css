@@ -184,18 +184,24 @@ nav {
 	opacity: 0.95;
 }
 
+.newrecord {
+	background-color: rgb(49, 107, 73);
+	visibility: visible;
+	opacity: 0.95;
+}
+
 .infodisplay {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
 	color: var(--light);
-	padding: 10px 40px;
-	top: 20vh;
+	padding: 10vh 50vw 40vh 50vw;
+	top: 10vh;
 	width: 80vw;
 	max-width: 400px;
 	margin: auto;
 	height: 55vh;
-	background-color: var(--dark);
+	background-color: var(--lighter);
 	border-radius: 5px;
 	visibility: hidden;
 	font-weight: 500;
@@ -218,6 +224,7 @@ nav {
 .infodisplay p {
 	margin: 0.8vh;
 	line-height: 2vh;
+	color: var(--darker);
 }
 
 .infodisplay.active {
@@ -225,7 +232,8 @@ nav {
 }
 
 img {
-	width: 60%;
+	width: 50vw;
+	max-width: 400px;
 	margin: 0.5vh;
 }
 
@@ -282,7 +290,7 @@ img {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	top: 20vh;
+	top: 10vh;
 	background-color: var(--lighter);
 	width: 100vw;
 	height: 50vh;
@@ -291,6 +299,7 @@ img {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+	padding: 10vh 50vw 40vh 50vw;
 }
 
 .leaderboarddisplay.active {

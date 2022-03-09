@@ -58,7 +58,7 @@ function restartGame() {
     currentRow = 1
     winStreak.innerHTML = `RACHA DE VICTORIAS: ${currentWins}`
     displayable.classList.remove('justlost')
-    displayable.classList.remove('justwon')
+    displayable.classList.remove('newrecord')
     gridElement.forEach( gridElement => {
         gridElement.innerHTML = ''
         gridElement.style.backgroundColor = 'var(--lighter)'
@@ -186,20 +186,22 @@ function compare() {
 
     if ( correctCounter == 5 ) {
         currentWins++
-        displayable.classList.add('justwon')
         setTimeout(restartGame, 2000)
         updateScoreboard()
     } else if (currentRow == 7) {
         currentWins = 0
-        if (!scoreboarded) {
-            displayable.classList.add('justlost')
-            setTimeout(restartGame, 2000)
-        } else {
-            leaderboardDisplay.classList.toggle('active')
-            setTimeout(restartGame, 2000) 
-            scoreboarded = false
-        }
-
+            if (!scoreboarded) {
+                displayable.classList.add('justlost')
+                setTimeout(restartGame, 2000)
+            } else {
+                displayable.innerHTML = 'NEW RECORD!'
+                displayable.classList.add('newrecord')
+                setTimeout(restartGame, 2000)
+                setTimeout(() => {
+                    leaderboardDisplay.classList.toggle('active')
+                    scoreboarded = false
+                }, 2000)
+            }
     }
 }
 
