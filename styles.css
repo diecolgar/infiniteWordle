@@ -29,8 +29,10 @@ body {
 	transition: 0.5s;
 	background-color: var(--lighter);
 	color: var(--darker);
-	overflow-y: hidden;
+	overflow: hidden;
 	margin: 0;
+	height: 100vh;
+	max-height: -webkit-fill-available;
 }
 
 nav {
