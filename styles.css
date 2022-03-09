@@ -30,9 +30,7 @@ body {
 	background-color: var(--lighter);
 	color: var(--darker);
 	overflow: hidden;
-	margin-top: 10vh;
 	height: 100vh;
-	max-height: -webkit-fill-available;
 }
 
 nav {
