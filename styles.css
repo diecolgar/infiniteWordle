@@ -30,7 +30,7 @@ body {
 	background-color: var(--lighter);
 	color: var(--darker);
 	overflow: hidden;
-	margin: 0;
+	margin-top: 10vh;
 	height: 100vh;
 	max-height: -webkit-fill-available;
 }
