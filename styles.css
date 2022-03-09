@@ -195,7 +195,7 @@ nav {
 	display: flex;
 	flex-direction: column;
 	color: var(--light);
-	padding: 8vh 10vw 30vh 10vw;
+	padding: 5vh 10vw 30vh 10vw;
 	top: 10vh;
 	width: 80vw;
 	max-width: 400px;
