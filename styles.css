@@ -30,7 +30,6 @@ body {
 	background-color: var(--lighter);
 	color: var(--darker);
 	overflow: hidden;
-	height: 100vh;
 }
 
 nav {
