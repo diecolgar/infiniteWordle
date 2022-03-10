@@ -41,7 +41,7 @@ function getRandWord() {
     fetch('testeo.txt')
     .then(response => response.text())
     .then((response) => {
-        reducedWords = response.split('\r\n')
+        reducedWords = response.split('\n')
             function random_item(item) {
                 return item[Math.floor(Math.random()*item.length)];
             }
