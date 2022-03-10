@@ -22,6 +22,7 @@ const userNameButton = document.querySelector('.icon-tabler-arrow-right')
 const userNameClose = document.querySelector('.icon-tabler-x')
 
 let allWords
+let reducedWords
 let userName = 'Anónimo'
 
 const rowLength = 5;
@@ -37,19 +38,29 @@ let checkingWordArray =  sampleword.split('')
 
 // function GET RANDOM WORD
 function getRandWord() {
-    fetch('palabras_todas.txt')
+    fetch('testeo.txt')
     .then(response => response.text())
     .then((response) => {
-        allWords = response.split('\n')
+        reducedWords = response.split('\r\n')
             function random_item(item) {
                 return item[Math.floor(Math.random()*item.length)];
             }
-        hiddenWord = random_item(allWords);
+        hiddenWord = random_item(reducedWords);
         hiddenWordArray = hiddenWord.split('')
     })
     .catch(err => console.log(err))
 }
 getRandWord()
+
+function getAllWords() {
+    fetch('palabras_todas_notilde.txt')
+    .then(response => response.text())
+    .then((response) => {
+        allWords = response.split('\r\n')
+    })
+    .catch(err => console.log(err))
+}
+getAllWords()
 
 // function RESTART GAME
 function restartGame() {
@@ -136,7 +147,6 @@ function compare() {
 
     let correctCounter = 0;
  
-
     for (let i = 0; i < rowLength; i++) {
 
         comparerArray[i] = false
@@ -145,14 +155,12 @@ function compare() {
 
         // grey words
         gridElement[i+((currentRow-2)*rowLength)].style.borderColor = 'var(--lighter)'
-        for (let j = 0; j < rowLength; j++) {
-            gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--light)'
-            gridKey.forEach( gridKey => {
-                if (gridKey.innerHTML == gridElement[i+((currentRow-2)*rowLength)].innerHTML) {
-                    gridKey.style.backgroundColor = 'var(--dark)'
-                }
-            })
-        }
+        gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--light)'
+        gridKey.forEach( gridKey => {
+            if (gridKey.innerHTML == gridElement[i+((currentRow-2)*rowLength)].innerHTML) {
+                gridKey.style.backgroundColor = 'var(--dark)'
+            }
+        })
     }
 
     for (let i = 0; i < rowLength; i++) {
@@ -172,7 +180,7 @@ function compare() {
     for (let i = 0; i < rowLength; i++) {
         // orange words
         for (let j = 0; j < rowLength; j++) {
-            if ( ((hiddenWordArray[j] == checkingWordArray[i]) && (!comparerArray[j])) && !(j == i) ) {
+            if ( ((hiddenWordArray[j] == checkingWordArray[i]) && (!comparerArray[i])) && !(j == i) ) {
                 gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--orange)'
                 gridKey.forEach( gridKey => {
                     if (gridKey.innerHTML == hiddenWordArray[j]) {
@@ -243,7 +251,7 @@ darkmode.addEventListener('click', () => {
         root.style.setProperty('--dark', 'rgb(58, 58, 58)')
         root.style.setProperty('--lighter', 'rgb(243, 243, 243)')
         root.style.setProperty('--darker', 'rgb(31, 31, 31)')
-        root.style.setProperty('--orange', 'rgb(236, 210, 90)')
+        root.style.setProperty('--orange', 'rgb(228, 195, 49)')
         root.style.setProperty('--green', 'rgb(82, 221, 152)')
         initialColorSate = true
     }

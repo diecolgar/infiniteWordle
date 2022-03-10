@@ -11,7 +11,7 @@
 	--lighter: rgb(31, 31, 31);
 	--dark: rgb(220, 220, 220);
 	--darker: rgb(243, 243, 243);
-	--orange: rgb(255, 225, 95);
+	--orange: rgb(228, 195, 49);
 	--green: rgb(82, 221, 152);
 	/* --orange: rgb(160, 77, 0);
 	--green: rgb(0, 117, 59); */
@@ -38,7 +38,7 @@ nav {
 	align-items: center;
 	justify-content: space-evenly;
 	height: 6vh;
-	width: 100vw;
+	width: 95vw;
 	background-color: var(--light);
 	color: var(--dark);
 	z-index: 100;
@@ -195,35 +195,37 @@ nav {
 	display: flex;
 	flex-direction: column;
 	color: var(--light);
-	padding: 5vh 10vw 25vh 10vw;
+	padding: 5vh 10vw 5vh 10vw;
 	top: 10vh;
 	width: 80vw;
 	max-width: 400px;
 	margin: auto;
-	height: 55vh;
+	height: 70vh;
 	background-color: var(--lighter);
 	border-radius: 5px;
 	visibility: hidden;
 	font-weight: 500;
-	font-size: 1.4vh;
+	font-size: 1.6vh;
 	z-index: 100;
 }
 
 @media (min-width: 400px) {
 	.infodisplay {
-		font-size: 1.5vh;
+		font-size: 1.65vh;
+		height: 80vh;
 	}
 }
 
 @media (min-width: 600px) {
 	.infodisplay {
-		font-size: 1.6vh;
+		font-size: 1.8vh;
+		height: 90vh;
 	}
 }
 
 .infodisplay p {
 	margin: 0.8vh;
-	line-height: 2vh;
+	line-height: 2.2vh;
 	color: var(--darker);
 }
 
@@ -245,9 +247,9 @@ img {
 	justify-content: center;
 	color: var(--darker);
 	top: 0;
-	width: 95vw;
+	width: 90vw;
 	margin: auto;
-	height: 90vh;
+	height: 95vh;
 	background-color: var(--lighter);
 	font-weight: 300;
 	font-size: 1.8vh;
@@ -290,9 +292,9 @@ img {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	top: 10vh;
+	top: 7vh;
 	background-color: var(--lighter);
-	width: 95vw;
+	width: 97vw;
 	height: 50vh;
 	z-index: 100;
 	/* visibility: hidden; */
@@ -304,6 +306,7 @@ img {
 
 .leaderboarddisplay.active {
 	visibility: hidden;
+	width: 50vw;
 }
 
 .leaderboard {
@@ -346,4 +349,13 @@ img {
 
 .closeiconinfo:hover {
 	cursor: pointer;
+}
+
+@media (min-width: 600px) {
+	.grid {
+		height: 50vh;
+	}
+	.input {
+		height: 30vh;
+	}
 }
