@@ -37,7 +37,7 @@ nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	height: 8vh;
+	height: 6vh;
 	width: 100vw;
 	background-color: var(--light);
 	color: var(--dark);
@@ -93,7 +93,7 @@ nav {
 }
 
 .grid {
-	margin-top: 4vh;
+	margin-top: 2vh;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 0.2vw;
@@ -120,7 +120,7 @@ nav {
 }
 
 .winstreak {
-	margin-top: 2vh;
+	/* margin-top: 2vh; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -134,11 +134,11 @@ nav {
 }
 
 .input {
-	margin-top: 2vh;
+	margin-top: 1.5vh;
 	display: grid;
 	grid-template-columns: repeat(10, 1fr);
 	grid-gap: 0.5vw;
-	height: 30vh;
+	height: 27vh;
 	width: 95vw;
 	max-width: 450px;
 }
