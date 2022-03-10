@@ -29,7 +29,7 @@ body {
 	transition: 0.5s;
 	background-color: var(--lighter);
 	color: var(--darker);
-	overflow: hidden;
+	overflow-x: hidden;
 	margin: 0;
 }
 
@@ -195,7 +195,7 @@ nav {
 	display: flex;
 	flex-direction: column;
 	color: var(--light);
-	padding: 5vh 10vw 30vh 10vw;
+	padding: 5vh 10vw 25vh 10vw;
 	top: 10vh;
 	width: 80vw;
 	max-width: 400px;
@@ -247,7 +247,7 @@ img {
 	top: 0;
 	width: 100vw;
 	margin: auto;
-	height: 100vh;
+	height: 90vh;
 	background-color: var(--lighter);
 	font-weight: 300;
 	font-size: 1.8vh;
@@ -299,7 +299,7 @@ img {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	padding: 10vh 0 40vh 0;
+	padding: 10vh 0 25vh 0;
 }
 
 .leaderboarddisplay.active {
