@@ -56,7 +56,7 @@ function getAllWords() {
     fetch('palabras_todas_notilde.txt')
     .then(response => response.text())
     .then((response) => {
-        allWords = response.split('\r\n')
+        allWords = response.split('\n')
     })
     .catch(err => console.log(err))
 }
