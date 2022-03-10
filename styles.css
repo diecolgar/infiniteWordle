@@ -29,7 +29,7 @@ body {
 	transition: 0.5s;
 	background-color: var(--lighter);
 	color: var(--darker);
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 	margin: 0;
 }
 
@@ -170,7 +170,7 @@ nav {
 	align-items: center;
 	justify-content: center;
 	font-size: 5vh;
-	width: 100vw;
+	width: 95vw;
 	height: 100vh;
 	visibility: hidden;
 	opacity: 0;
@@ -245,7 +245,7 @@ img {
 	justify-content: center;
 	color: var(--darker);
 	top: 0;
-	width: 100vw;
+	width: 95vw;
 	margin: auto;
 	height: 90vh;
 	background-color: var(--lighter);
