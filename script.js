@@ -38,7 +38,7 @@ let checkingWordArray =  sampleword.split('')
 
 // function GET RANDOM WORD
 function getRandWord() {
-    fetch('testeo.txt')
+    fetch('palabras_reducidas_provisional.txt')
     .then(response => response.text())
     .then((response) => {
         reducedWords = response.split('\n')
