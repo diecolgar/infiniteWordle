@@ -200,7 +200,8 @@ function compare() {
         currentWins = 0
             if (!scoreboarded) {
                 displayable.classList.add('justlost')
-                setTimeout(restartGame, 2000)
+                displayable.innerHTML = `HAS PERDIDO :( \n Palabra correcta: ${hiddenWord}`
+                setTimeout(restartGame,2000)
             } else {
                 displayable.innerHTML = 'NUEVO RÉCORD!'
                 displayable.classList.add('newrecord')
