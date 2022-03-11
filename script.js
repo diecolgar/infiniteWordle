@@ -46,7 +46,6 @@ function getRandWord() {
                 return item[Math.floor(Math.random()*item.length)];
             }
         hiddenWord = random_item(reducedWords);
-        hiddenWord = 'ABEJA'
         hiddenWordArray = hiddenWord.split('')
     })
     .catch(err => console.log(err))
