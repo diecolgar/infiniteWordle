@@ -46,6 +46,7 @@ function getRandWord() {
                 return item[Math.floor(Math.random()*item.length)];
             }
         hiddenWord = random_item(reducedWords);
+        hiddenWord = 'ABEJA'
         hiddenWordArray = hiddenWord.split('')
     })
     .catch(err => console.log(err))
@@ -142,6 +143,7 @@ gridKey.forEach((gridKey, id) => {
 })
 
 let comparerArray = Array(rowLength)
+let comparerArrayHidden = Array(rowLength)
 
 function compare() {
 
@@ -150,6 +152,7 @@ function compare() {
     for (let i = 0; i < rowLength; i++) {
 
         comparerArray[i] = false
+        comparerArrayHidden[i] = false
 
         checkingWordArray[i] = gridElement[i+((currentRow-2)*rowLength)].innerHTML
 
@@ -173,6 +176,7 @@ function compare() {
                     }
                 })
                 comparerArray[i] = true
+                comparerArrayHidden[i] = true
                 correctCounter++
             }
     }
@@ -180,14 +184,15 @@ function compare() {
     for (let i = 0; i < rowLength; i++) {
         // orange words
         for (let j = 0; j < rowLength; j++) {
-            if ( ((hiddenWordArray[j] == checkingWordArray[i]) && (!comparerArray[j])) && !(j == i) ) {
+            if ( ((hiddenWordArray[j] == checkingWordArray[i]) && ((!comparerArray[i]) && (!comparerArrayHidden[j])) ) && !(j == i) ) {
                 gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--orange)'
                 gridKey.forEach( gridKey => {
                     if (gridKey.innerHTML == hiddenWordArray[j]) {
                         gridKey.style.backgroundColor = 'var(--orange)'
                     }
                 })
-                comparerArray[j] = true
+                comparerArray[i] = true
+                comparerArrayHidden[j] = true
             }
         }
     }    
