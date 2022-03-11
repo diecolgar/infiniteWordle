@@ -207,13 +207,13 @@ function compare() {
                 displayable.innerHTML = `HAS PERDIDO :( \n Palabra correcta: ${hiddenWord}`
                 setTimeout(restartGame,5000)
             } else {
-                displayable.innerHTML = 'NUEVO RÉCORD!'
+                displayable.innerHTML = `NUEVO RÉCORD! :) \n Palabra correcta: ${hiddenWord}`
                 displayable.classList.add('newrecord')
-                setTimeout(restartGame, 2000)
+                setTimeout(restartGame, 4000)
                 setTimeout(() => {
                     leaderboardDisplay.classList.toggle('active')
                     scoreboarded = false
-                }, 2000)
+                }, 4000)
             }
     }
 }
