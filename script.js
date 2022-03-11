@@ -180,7 +180,7 @@ function compare() {
     for (let i = 0; i < rowLength; i++) {
         // orange words
         for (let j = 0; j < rowLength; j++) {
-            if ( ((hiddenWordArray[j] == checkingWordArray[i]) && (!comparerArray[i])) && !(j == i) ) {
+            if ( ((hiddenWordArray[j] == checkingWordArray[i]) && (!comparerArray[j])) && !(j == i) ) {
                 gridElement[i+((currentRow-2)*rowLength)].style.backgroundColor = 'var(--orange)'
                 gridKey.forEach( gridKey => {
                     if (gridKey.innerHTML == hiddenWordArray[j]) {
@@ -201,7 +201,7 @@ function compare() {
             if (!scoreboarded) {
                 displayable.classList.add('justlost')
                 displayable.innerHTML = `HAS PERDIDO :( \n Palabra correcta: ${hiddenWord}`
-                setTimeout(restartGame,2000)
+                setTimeout(restartGame,5000)
             } else {
                 displayable.innerHTML = 'NUEVO RÉCORD!'
                 displayable.classList.add('newrecord')
