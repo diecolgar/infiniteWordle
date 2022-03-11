@@ -187,7 +187,7 @@ function compare() {
                         gridKey.style.backgroundColor = 'var(--orange)'
                     }
                 })
-                comparerArray[i] = true
+                comparerArray[j] = true
             }
         }
     }    
