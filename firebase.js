@@ -97,11 +97,16 @@ let scoresArray = Array(10)
 
     for (i = 0; i < 10; i++) {
       if (currentWins > scoresArray[i]) {
-        console.log('testeo')
-        scoreboarded = true
-        scoresArray.splice(i, 0, currentWins)
-        playersArray.splice(i, 0, userName)
-        break
+        for (j = 0; j < 10; j++) {
+            if ((userName == playersArray[j]) && (currentWins >= scoresArray[j])) {
+                playersArray.splice(j, 1);
+                scoresArray.splice(j, 1);
+            }
+        }
+                scoreboarded = true
+                scoresArray.splice(i, 0, currentWins)
+                playersArray.splice(i, 0, userName)
+                break
       }
   
       console.log(playersArray[i])
