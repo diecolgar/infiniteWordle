@@ -95,18 +95,18 @@ let scoresArray = Array(10)
 
   function updateScoreboard() {
 
-    for (i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
       if (currentWins > scoresArray[i]) {
-        for (j = 0; j < 10; j++) {
+        for (let j = 0; j < 10; j++) {
             if ((userName == playersArray[j]) && (currentWins >= scoresArray[j])) {
                 playersArray.splice(j, 1);
                 scoresArray.splice(j, 1);
             }
         }
-                scoreboarded = true
-                scoresArray.splice(i, 0, currentWins)
-                playersArray.splice(i, 0, userName)
-                break
+        scoreboarded = true;
+        scoresArray.splice(i, 0, currentWins);
+        playersArray.splice(i, 0, userName);
+        break
       }
   
       console.log(playersArray[i])
