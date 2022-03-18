@@ -99,7 +99,7 @@ let scoresArray = Array(10)
       if (currentWins > scoresArray[i]) {
         for (let j = 0; j < 10; j++) {
             if (userName == playersArray[j]) {
-                if (currentWins >= scoresArray[j])) {
+                if (currentWins >= scoresArray[j]) {
                     playersArray.splice(j, 1);
                     scoresArray.splice(j, 1);
                     scoreboarded = true;
