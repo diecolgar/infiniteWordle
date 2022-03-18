@@ -94,30 +94,30 @@ let scoresArray = Array(10)
   });
 
   function updateScoreboard() {
-
+    var broken = 0;
     for (let i = 0; i < 10; i++) {
-      if (currentWins > scoresArray[i]) {
+      if ((currentWins > scoresArray[i]) && (broken === 0)) {
         for (let j = 0; j < 10; j++) {
             if (userName == playersArray[j]) {
+                broken = 1;
                 if (currentWins >= scoresArray[j]) {
                     playersArray.splice(j, 1);
                     scoresArray.splice(j, 1);
                     scoreboarded = true;
                     scoresArray.splice(i, 0, currentWins);
                     playersArray.splice(i, 0, userName);
-                    break
                 } else {
                     console.log("do nothing");
-                    break
                 }
             }
         }
-        scoreboarded = true;
-        scoresArray.splice(i, 0, currentWins);
-        playersArray.splice(i, 0, userName);
-        break
+        if (broken === 0) {
+            scoreboarded = true;
+            scoresArray.splice(i, 0, currentWins);
+            playersArray.splice(i, 0, userName);
+            broken = 1;
+        }
       }
-  
       console.log(playersArray[i])
     }
 
