@@ -108,6 +108,7 @@ let scoresArray = Array(10)
                     break
                 } else {
                     console.log("do nothing");
+                    break
                 }
             }
         }
