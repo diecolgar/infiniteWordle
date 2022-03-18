@@ -98,9 +98,17 @@ let scoresArray = Array(10)
     for (let i = 0; i < 10; i++) {
       if (currentWins > scoresArray[i]) {
         for (let j = 0; j < 10; j++) {
-            if ((userName == playersArray[j]) && (currentWins >= scoresArray[j])) {
-                playersArray.splice(j, 1);
-                scoresArray.splice(j, 1);
+            if ((userName == playersArray[j]) {
+                if (currentWins >= scoresArray[j])) {
+                    playersArray.splice(j, 1);
+                    scoresArray.splice(j, 1);
+                    scoreboarded = true;
+                    scoresArray.splice(i, 0, currentWins);
+                    playersArray.splice(i, 0, userName);
+                    break
+                } else {
+                    console.log("do nothing");
+                }
             }
         }
         scoreboarded = true;
