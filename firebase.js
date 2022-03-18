@@ -104,8 +104,8 @@ let scoresArray = Array(10)
                     playersArray.splice(j, 1);
                     scoresArray.splice(j, 1);
                     scoreboarded = true;
-                    scoresArray.splice(j, 0, currentWins);
-                    playersArray.splice(j, 0, userName);
+                    scoresArray.splice(i-1, 0, currentWins);
+                    playersArray.splice(i-1, 0, userName);
                 } else {
                     console.log("do nothing");
                 }
